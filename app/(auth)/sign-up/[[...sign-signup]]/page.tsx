@@ -6,8 +6,8 @@ export default function SignUpPage() {
       path="/sign-up"
       routing="path"
       signInUrl="/sign-in"
-      redirectUrl="/new-user"
-      afterSignUpUrl="/new-user"
+      forceRedirectUrl="/new-user"
+      fallbackRedirectUrl="/new-user"
     />
   )
 }
