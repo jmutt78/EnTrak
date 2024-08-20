@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Entrak
+
+Entrak is an application for tracking and managing various types of media (movies, TV shows, books, etc.). This guide will help you set up and run the application locally using Docker and MySQL.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+- [Docker](https://www.docker.com/get-started)
+- [Node.js](https://nodejs.org/) (v18 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/entrak.git
+cd entrak
+```
+
+### 2. Set Up Environment Variables
+
+Create a `.env.local` file in the root of the project and add the following environment variables:
+
+```env
+NEXT_PUBLIC_CLERK_FRONTEND_API=<your-clerk-frontend-api>
+CLERK_API_KEY=<your-clerk-api-key>
+DATABASE_URL="mysql://root:password@localhost:3306/entrak"
+```
+
+### 3. Build and Run the Docker Containers
+
+Build and start the MySQL container:
+
+```bash
+docker-compose up --build
+```
+
+This command will:
+- Build the MySQL Docker image.
+- Start the MySQL container.
+- Expose the MySQL service on port 3306.
+
+### 4. Install Dependencies
+
+Install the Node.js dependencies required for the application:
+
+```bash
+npm install
+```
+
+### 5. Set Up Prisma
+
+Initialize Prisma and run the migrations to set up the database schema:
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+### 6. Run the Application
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the Next.js application on `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `pages/`: Contains the Next.js pages for the app.
+- `prisma/`: Contains the Prisma schema and migrations.
+- `Dockerfile`: Docker configuration for running the app.
+- `docker-compose.yml`: Docker Compose configuration for orchestrating containers.
 
-## Learn More
+## Developing
 
-To learn more about Next.js, take a look at the following resources:
+- To add new Prisma models or update existing ones, modify the `prisma/schema.prisma` file and run `npx prisma migrate dev`.
+- To interact with the database in your application, use the generated Prisma client.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Troubleshooting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Docker Issues**: If you encounter issues with Docker, ensure that Docker is running and that the ports used by the services are not being blocked by other applications.
+- **Database Connection**: Ensure that the `DATABASE_URL` in your `.env.local` file is correctly configured to connect to the local MySQL database.
 
-## Deploy on Vercel
+## Future Plans
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Implement API endpoints for user management and authentication.
+- Integrate Clerk for user sign-up and sign-in.
+- Deploy to a production environment using Planetscale for database hosting.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```

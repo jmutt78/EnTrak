@@ -1,0 +1,9 @@
+overwrite: true
+schema:
+  - './app/api/graphql/schema/schema.ts' # Point directly to the schema.ts file
+generates:
+  ./generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-resolvers'
