@@ -1,6 +1,5 @@
 overwrite: true
-schema:
-  - './app/api/graphql/schema/schema.ts' # Point directly to the schema.ts file
+schema: 'http://localhost:3000/api/graphql'
 generates:
   ./generated/graphql.ts:
     plugins:
