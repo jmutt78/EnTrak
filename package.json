@@ -12,7 +12,8 @@
   "dependencies": {
     "@apollo/server": "^4.11.0",
     "@as-integrations/next": "^3.1.0",
-    "@clerk/nextjs": "^5.3.2",
+    "@clerk/clerk-sdk-node": "^5.0.29",
+    "@clerk/nextjs": "^5.3.3",
     "@prisma/client": "^5.18.0",
     "apollo-server-express": "^3.13.0",
     "apollo-server-micro": "^3.13.0",
