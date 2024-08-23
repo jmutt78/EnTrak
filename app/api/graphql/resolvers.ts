@@ -23,5 +23,21 @@ export const resolvers = {
         },
       })
     },
+    deleteUser: async (_: any, { id }: { id: string }) => {
+      return await prisma.user.delete({
+        where: { clerkId: id },
+      })
+    },
+    updateUser: async (
+      _: any,
+      { id, email }: { id: string; email: string }
+    ) => {
+      return await prisma.user.update({
+        where: { clerkId: id },
+        data: {
+          email,
+        },
+      })
+    },
   },
 }

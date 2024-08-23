@@ -22,7 +22,8 @@
     "graphql-tag-pluck": "^0.8.7",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "svix": "^1.30.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
