@@ -54,6 +54,10 @@ export async function POST(req: NextRequest) {
       await handleUserCreated(evt.data)
       break
     case 'user.deleted':
+      if (!id) {
+        console.error('Missing user ID in event data')
+        return NextResponse.json({ error: 'Missing user ID' }, { status: 400 })
+      }
       await handleUserDeleted(id)
       break
     case 'user.updated':

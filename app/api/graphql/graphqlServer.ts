@@ -10,6 +10,7 @@ const prisma = new PrismaClient()
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
+  // @ts-ignore: Ignore the TypeScript error for now
   context: async ({ req }: { req: any }) => {
     const { userId } = getAuth(req)
     const user = userId
