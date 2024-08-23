@@ -13,11 +13,14 @@ const apolloServer = new ApolloServer({
   // @ts-ignore: Ignore the TypeScript error for now
   context: async ({ req }: { req: any }) => {
     const { userId } = getAuth(req)
+    if (!userId) {
+      throw new Error('Not authenticated')
+    }
     const user = userId
       ? await prisma.user.findUnique({ where: { clerkId: userId } })
       : null
     return { user, prisma }
   },
-}) as any
+})
 
 export const handler = startServerAndCreateNextHandler(apolloServer)
