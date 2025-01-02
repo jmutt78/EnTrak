@@ -67,7 +67,13 @@ Start the development server:
 npm run dev
 ```
 
+If you want to use the Clerk authentication service, you can start the Clerk service by running:
+```bash
+ngrok http 3000   
+```
+
 This will start the Next.js application on `http://localhost:3000`.
+
 
 ## Project Structure
 
