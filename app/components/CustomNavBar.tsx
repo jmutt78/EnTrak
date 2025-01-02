@@ -6,9 +6,9 @@ import ThemeToggle from './ThemeToggle'
 import { useRouter, usePathname } from 'next/navigation'
 
 const navLinks = [
-  { label: 'Story Explorer', href: '/explore' },
-  { label: 'Story Architect', href: '/architect' },
-  { label: 'Trash', href: '/trash' }, // Add Trash link here
+  { label: 'TV Shows', href: '/tv' },
+  { label: 'Movies', href: '/movie' },
+  { label: 'Books', href: '/book' }, // Add Trash link here
 ]
 
 const CustomNavBar = () => {
@@ -71,19 +71,12 @@ const CustomNavBar = () => {
       <div className="flex-1">
         <Link href="/">
           <span className="btn btn-ghost text-xl text-gray-800 dark:text-gray-200">
-            StoryCraft
+            Entrack
           </span>
         </Link>
       </div>
 
       <div className="navbar-end flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-          />
-        </div>
         <div className="dropdown dropdown-end ml-6 mr-6">
           <UserButton
             appearance={{

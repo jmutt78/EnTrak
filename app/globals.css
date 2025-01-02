@@ -2,3 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== CSS Variables ===== */
+:root {
+  --text-editor-heading-color: #1f2937; /* Tailwind's text-gray-800 for light mode */
+}
+
+.dark {
+  --text-editor-heading-color: #dddfe3; /* Tailwind's text-gray-200 for dark mode */
+}
+
+/* ===== General Editor Styles ===== */
+.text-editor-content {
+  padding: 1rem; /* Optional padding for the entire editor */
+}
+
+/* ===== Headings ===== */
+.text-editor-content h1 {
+  @apply text-3xl font-bold mb-2 leading-tight;
+  color: var(--text-editor-heading-color);
+}
+
+.text-editor-content h2 {
+  @apply text-2xl font-semibold mb-3 leading-normal;
+  color: var(--text-editor-heading-color);
+}
+
+/* ===== Lists ===== */
+.text-editor-content ul,
+.text-editor-content ol {
+  margin-left: 1.25rem;
+  padding-left: 1rem;
+  color: var(--text-editor-heading-color);
+}
+
+.text-editor-content ul {
+  list-style-type: disc; /* Unordered list bullets */
+}
+
+.text-editor-content ol {
+  list-style-type: decimal; /* Ordered list numbers */
+}
+
+.text-editor-content li {
+  @apply mb-2 text-base leading-relaxed;
+}
+
+/* Nested lists */
+.text-editor-content ul ul,
+.text-editor-content ol ol {
+  list-style-type: circle; /* Nested lists */
+  margin-left: 1rem;
+  padding-left: 1rem;
+}
+
+/* ===== Blockquotes ===== */
+.text-editor-content blockquote {
+  border-left: 4px solid #4b5563; /* Tailwind's gray-600 for light mode */
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #374151; /* Tailwind's gray-700 for light mode */
+}
+
+.dark .text-editor-content blockquote {
+  border-left: 4px solid #9ca3af; /* Tailwind's gray-400 for dark mode */
+  color: #d1d5db; /* Tailwind's gray-300 for dark mode */
+}

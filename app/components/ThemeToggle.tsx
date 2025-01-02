@@ -28,7 +28,11 @@ const ThemeToggle = () => {
   }
 
   return (
-    <button onClick={toggleTheme} aria-label="Toggle Theme">
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle Theme"
+      className="btn btn-ghost"
+    >
       {theme === 'light' ? <FaSun /> : <FaMoon />}
     </button>
   )

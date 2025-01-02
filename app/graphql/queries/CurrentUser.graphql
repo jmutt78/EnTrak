@@ -1,0 +1,27 @@
+query CurrentUser {
+  currentUser {
+    id
+    clerkId
+    email
+    profileImage
+    explorerData {
+      id
+      title
+      description
+    }
+    architectData {
+      id
+      title
+      description
+      sections {
+        id
+        title
+        chapters {
+          id
+          title
+          content
+        }
+      }
+    }
+  }
+}
