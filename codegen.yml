@@ -1,8 +1,16 @@
 overwrite: true
 schema: 'http://localhost:3000/api/graphql'
+documents: 'app/graphql/**/*.graphql'
 generates:
-  ./generated/graphql.ts:
+  app/graphql/graphql.tsx:
     plugins:
       - 'typescript'
       - 'typescript-operations'
+      - 'typescript-react-apollo'
       - 'typescript-resolvers'
+    config:
+      fetcher: 'fetch'
+  # Optional: Generates a schema-only types file
+  app/graphql/generated/schema.ts:
+    plugins:
+      - 'typescript'
