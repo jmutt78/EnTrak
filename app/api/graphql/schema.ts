@@ -21,10 +21,27 @@ export const typeDefs = gql`
     tmdb: Int
   }
 
+  type PaginatedMovies {
+    movies: [Movie!]!
+    metadata: PaginationMetadata!
+  }
+
+  type PaginationMetadata {
+    page: Int!
+    limit: Int!
+    total: Int!
+    totalPages: Int!
+  }
+
   type Query {
     currentUser: User
     searchMovies(query: String!): [Movie!]!
-    filterMovies(genre: String, year: Int): [Movie!]!
+    filterMovies(
+      genre: String
+      year: Int
+      page: Int
+      limit: Int
+    ): PaginatedMovies!
   }
 
   type Mutation {
