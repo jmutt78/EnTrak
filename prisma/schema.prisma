@@ -20,8 +20,8 @@ model UserMovie {
   id        String   @id @default(uuid())
   userId    String // Clerk user ID
   movieId   String // Trakt API movie ID
-  title     String // Movie title for quick lookup
-  genres    String // Comma-separated genre names from Trakt API
+  title     String // Movie title
+  genres    String // Comma-separated genre names (e.g., "Action,Adventure,Sci-Fi")
   status    String // "watched" or "to-watch"
   rating    Int? // Optional user rating
   createdAt DateTime @default(now())

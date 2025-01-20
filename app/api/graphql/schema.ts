@@ -11,6 +11,7 @@ export const typeDefs = gql`
     title: String!
     year: Int
     ids: MovieIDs
+    genres: String
   }
 
   type MovieIDs {
@@ -22,7 +23,8 @@ export const typeDefs = gql`
 
   type Query {
     currentUser: User
-    trendingMovies: [Movie!]!
+    searchMovies(query: String!): [Movie!]!
+    filterMovies(genre: String, year: Int): [Movie!]!
   }
 
   type Mutation {

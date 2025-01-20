@@ -10,17 +10,3 @@ const traktClient = axios.create({
 })
 
 export default traktClient
-
-export const getTrendingMovies = async () => {
-  try {
-    const response = await traktClient.get('/movies/trending')
-    console.log('Trending Movies Response:', response.data)
-    return response.data
-  } catch (error) {
-    console.error(
-      'Error fetching trending movies:',
-      error.response?.data || error.message
-    )
-    throw error
-  }
-}
