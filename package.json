@@ -30,6 +30,7 @@
     "@tiptap/starter-kit": "^2.9.1",
     "apollo-server-express": "^3.13.0",
     "apollo-server-micro": "^3.13.0",
+    "axios": "^1.7.9",
     "daisyui": "^4.12.14",
     "graphql-tag": "^2.12.6",
     "graphql-tag-pluck": "^0.8.7",

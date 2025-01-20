@@ -15,3 +15,39 @@ model User {
   updatedAt    DateTime @updatedAt
   profileImage String?
 }
+
+model UserMovie {
+  id        String   @id @default(uuid())
+  userId    String // Clerk user ID
+  movieId   String // Trakt API movie ID
+  title     String // Movie title for quick lookup
+  genres    String // Comma-separated genre names from Trakt API
+  status    String // "watched" or "to-watch"
+  rating    Int? // Optional user rating
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserTVShow {
+  id        String   @id @default(uuid())
+  userId    String // Clerk user ID
+  showId    String // Trakt API show ID
+  title     String // Show title for quick lookup
+  genres    String // Comma-separated genre names from Trakt API
+  status    String // "watching", "to-watch", or "completed"
+  rating    Int? // Optional user rating
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserBook {
+  id        String   @id @default(uuid())
+  userId    String // Clerk user ID
+  bookId    String // Book API ID
+  title     String // Book title for quick lookup
+  genres    String // Comma-separated genre names from Book API
+  status    String // "read" or "to-read"
+  rating    Int? // Optional user rating
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

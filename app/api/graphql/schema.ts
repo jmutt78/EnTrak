@@ -5,11 +5,24 @@ export const typeDefs = gql`
     id: ID!
     clerkId: String!
     email: String!
-    clerkId: String!
+  }
+
+  type Movie {
+    title: String!
+    year: Int
+    ids: MovieIDs
+  }
+
+  type MovieIDs {
+    trakt: Int
+    slug: String
+    imdb: String
+    tmdb: Int
   }
 
   type Query {
     currentUser: User
+    trendingMovies: [Movie!]!
   }
 
   type Mutation {
