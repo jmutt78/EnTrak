@@ -39,6 +39,9 @@ export const typeDefs = gql`
     filterMovies(
       genre: String
       year: Int
+      rating: String
+      runtime: String
+      sortBy: String
       page: Int
       limit: Int
     ): PaginatedMovies!

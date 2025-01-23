@@ -26,12 +26,23 @@ export const movieResolvers = {
 
     filterMovies: async (
       _: any,
-      args: { genre?: string; year?: number; page?: number; limit?: number }
+      args: {
+        genre?: string
+        year?: number
+        rating?: string
+        runtime?: string
+        sortBy?: string
+        page?: number
+        limit?: number
+      }
     ) => {
       try {
         const { movies, metadata } = await getMoviesByFilter(
           args.genre,
           args.year,
+          args.rating,
+          args.runtime,
+          args.sortBy || 'title',
           args.page || 1,
           args.limit || 10
         )
